@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ROOT>
+	<MAP_INFO scrno=" 5600" scrname="신용약정 - 신용정보동의" version="1" writer="itgen:" date="2015/01/08 13:08:06" />
+	<FORM_INFO name="Form" bgcolor="042:255255255" ly_vert="0,0,320,383,1" />
+	<CONTROL_INFO>
+		<CONTAINER name="Con0" resize="0001" vscroll="1" ly_vert="0,35,320,290,1" scroll_ly_vert="0,0" >
+			<CONTROL_INFO>
+				<RADIOGROUP name="rgAgree1" ly_vert="180,26,136,30,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,0,48,30" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,0,62,30" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<RADIOGROUP name="rgAgree2" ly_vert="180,76,136,30,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,0,48,30" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,0,62,30" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<RADIOGROUP name="rgAgree3" ly_vert="180,51,136,30,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,0,48,30" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,0,62,30" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<BUTTON name="btnTitle0" caption="　　개인(신용)정보 수집·이용·제공 동의서" fontsize="-2" btnimage="acc_bt_n.9" transmode="0" halign="0" shadow="0" ly_vert="415,805,260,30,1" />
+				<BUTTON name="btnTitle2" caption="　　개인(신용)정보 제공·조회 동의서" fontsize="-2" btnimage="acc_bt_n.9" transmode="0" halign="0" shadow="0" ly_vert="415,840,260,30,1" />
+				<CHKBUTTON name="ckbWebAgree1" enable="0" chkcaption="　" unchkcaption="　" chkbtnimage="chbox_check2_o" unchkbtnimage="chbox_check2_n" ly_vert="420,810,20,20,0" />
+				<CHKBUTTON name="ckbWebAgree2" enable="0" chkcaption="　" unchkcaption="　" chkbtnimage="chbox_check2_o" unchkbtnimage="chbox_check2_n" ly_vert="420,845,20,20,0" />
+				<IMAGE name="Image1" imagefilepth="bt_won_n" ly_vert="13,13,5,5,1" />
+				<LABEL name="Label1" caption="개인(신용)정보 필수동의서(공통)" ly_vert="18,1,299,30,1" />
+				<LABEL name="Label5" caption="[수집/이용]" fgcolor="175:057152148" ly_vert="10,26,120,30,1" />
+				<LABEL name="Label7" caption="[고유식별정보]" fgcolor="175:057152148" ly_vert="10,76,120,30,1" />
+				<LABEL name="Label9" caption="[업무위탁]" fgcolor="175:057152148" ly_vert="10,51,120,30,1" />
+				<IMAGE name="Image5" imagefilepth="bt_won_n" ly_vert="13,343,5,5,1" />
+				<LABEL name="Label12" caption="개인(신용)정보 필수동의서(상품별)" ly_vert="18,331,268,30,1" />
+				<IMAGE name="Image13" imagefilepth="bt_won_n" ly_vert="13,128,5,5,1" />
+				<LABEL name="Label32" caption="개인(신용)정보 선택동의서" ly_vert="18,116,200,30,1" />
+				<LABEL name="Label33" caption="[수집/이용]" fgcolor="175:057152148" ly_vert="10,141,156,30,1" />
+				<LABEL name="Label35" border="1" bordercolor="073:211211211" ly_vert="11,170,298,1,1" />
+				<LABEL name="Label36" caption="상품서비스 안내 등 마케팅" ly_vert="10,171,179,30,1" />
+				<LABEL name="Label37" border="1" bordercolor="073:211211211" ly_vert="11,200,298,1,1" />
+				<LABEL name="Label38" caption="우 편" halign="1" ly_vert="10,201,75,30,1" />
+				<LABEL name="Label39" caption="문자(SMS)" halign="1" ly_vert="160,201,75,30,1" />
+				<LABEL name="Label40" caption="전화" halign="1" ly_vert="85,201,75,30,1" />
+				<LABEL name="Label41" caption="이메일" halign="1" ly_vert="235,201,75,30,1" />
+				<LABEL name="Label42" border="1" bordercolor="073:211211211" ly_vert="11,230,298,1,1" />
+				<LABEL name="Label43" border="1" bordercolor="073:211211211" ly_vert="159,201,1,59,1" />
+				<LABEL name="Label44" border="1" bordercolor="073:211211211" ly_vert="234,201,1,59,1" />
+				<RADIOGROUP name="rgAgree4" ly_vert="195,171,113,30,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="0,0,105,30" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="50,0,105,30" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<CHKBUTTON name="ckbAgree4" chkcaption="동의" unchkcaption="동의" ly_vert="20,231,65,30,1" />
+				<CHKBUTTON name="ckbAgree5" chkcaption="동의" unchkcaption="동의" ly_vert="170,231,65,30,1" />
+				<CHKBUTTON name="ckbAgree6" chkcaption="동의" unchkcaption="동의" ly_vert="95,231,65,30,1" />
+				<CHKBUTTON name="ckbAgree7" chkcaption="동의" unchkcaption="동의" ly_vert="245,231,65,30,1" />
+				<LABEL name="Label53" border="1" bordercolor="073:211211211" ly_vert="84,201,1,59,1" />
+				<BUTTON name="btnWebAgree1" enable="0" btnimage="alpha" transmode="0" shadow="0" ly_vert="415,805,260,30,0" />
+				<BUTTON name="btnWebAgree2" enable="0" btnimage="alpha" transmode="0" shadow="0" ly_vert="415,840,260,30,0" />
+				<LABEL name="Label0" caption="시각장애우 정보" ly_vert="10,261,179,30,1" />
+				<RADIOGROUP name="rgAgree8" ly_vert="180,258,136,30,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,2,48,32" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,2,62,32" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<LABEL name="Label10" border="1" bordercolor="073:211211211" ly_vert="11,259,298,1,1" />
+				<RADIOGROUP name="rgAgree9" ly_vert="180,291,136,30,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,2,48,32" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,2,62,32" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<LABEL name="Label13" caption="[민감정보]" fgcolor="175:057152148" ly_vert="10,291,120,30,1" />
+				<LABEL name="Label11" caption="[수집/이용]" fgcolor="175:057152148" ly_vert="10,361,120,30,1" />
+				<LABEL name="Label14" caption="재형/소장" ly_vert="15,386,149,25,1" />
+				<RADIOGROUP name="rgAgree10" ly_vert="180,383,136,25,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,0,48,25" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,0,62,25" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<LABEL name="Label15" caption="생계형/세금우대" ly_vert="15,411,179,25,1" />
+				<RADIOGROUP name="rgAgree11" ly_vert="180,408,136,25,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,0,48,25" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,0,62,25" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<LABEL name="Label16" caption="개인연금/연금저축" ly_vert="15,436,179,25,1" />
+				<RADIOGROUP name="rgAgree12" ly_vert="180,433,136,25,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,0,48,25" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,0,62,25" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<RADIOGROUP name="rgAgree13" ly_vert="180,458,136,25,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,0,48,25" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,0,62,25" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<LABEL name="Label17" caption="퇴직연금" ly_vert="15,461,159,25,1" />
+				<LABEL name="Label18" caption="방카슈랑스" ly_vert="15,486,148,25,1" />
+				<RADIOGROUP name="rgAgree14" ly_vert="180,483,136,25,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,0,48,25" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,0,62,25" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<RADIOGROUP name="rgAgree15" ly_vert="180,508,136,25,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,0,48,25" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,0,62,25" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<LABEL name="Label19" caption="신용거래상품" ly_vert="15,511,164,25,1" />
+				<RADIOGROUP name="rgAgree16" ly_vert="180,533,136,25,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,0,48,25" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,0,62,25" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<LABEL name="Label20" caption="ELW" ly_vert="15,536,162,25,1" />
+				<LABEL name="Label2" caption="[조회]" fgcolor="175:057152148" ly_vert="10,561,120,25,1" />
+				<RADIOGROUP name="rgAgree17" ly_vert="180,561,136,25,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,0,48,25" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,0,62,25" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<LABEL name="Label3" caption="[업무위탁]" fgcolor="175:057152148" ly_vert="10,586,120,25,1" />
+				<RADIOGROUP name="rgAgree18" ly_vert="180,586,136,25,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,0,48,25" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,0,62,25" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<LABEL name="Label4" caption="[제공]" fgcolor="175:057152148" ly_vert="10,611,120,25,1" />
+				<LABEL name="Label6" caption="신용정보집중/조회회사" ly_vert="15,639,179,25,1" />
+				<RADIOGROUP name="rgAgree19" ly_vert="180,639,136,25,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,0,48,25" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,0,62,25" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<LABEL name="Label8" caption="제휴카드" ly_vert="15,664,179,25,1" />
+				<RADIOGROUP name="rgAgree20" ly_vert="180,663,136,25,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,0,48,25" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,0,62,25" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<LABEL name="Label21" caption="방카슈랑스" ly_vert="15,689,179,25,1" />
+				<RADIOGROUP name="rgAgree21" ly_vert="180,689,136,25,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,0,48,25" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,0,62,25" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<RADIOGROUP name="rgAgree22" ly_vert="180,714,136,25,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,0,48,25" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,0,62,25" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<LABEL name="Label22" caption="주식매입자금연계대출" ly_vert="15,714,164,25,1" />
+				<LABEL name="Label23" caption="[고유식별정보]" fgcolor="175:057152148" ly_vert="10,746,120,25,1" />
+				<RADIOGROUP name="rgAgree23" ly_vert="180,746,136,25,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,0,48,25" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,0,62,25" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<LABEL name="Label24" caption="[민감정보]" fgcolor="175:057152148" ly_vert="10,771,120,25,1" />
+				<RADIOGROUP name="rgAgree24" ly_vert="180,771,136,25,1" focusbgcolor="029:254249231" >
+					<RADIO_INFO>
+						<RADIO no="0" text="동의" forecolor="004:128128128" selforecolor="005:048106103" position="2,0,48,25" />
+						<RADIO no="1" text="미동의" forecolor="004:128128128" selforecolor="005:048106103" position="70,0,62,25" />
+					</RADIO_INFO>
+				</RADIOGROUP>
+				<BUTTON name="Button0" caption="상세보기" fgcolor="175:057152148" fontsize="-2" btnimage="bt_accin.9" transmode="0" shadow="0" ly_vert="327,30,60,20,1" />
+				<BUTTON name="Button1" caption="상세보기" fgcolor="175:057152148" fontsize="-2" btnimage="bt_accin.9" transmode="0" shadow="0" ly_vert="327,55,60,20,1" />
+				<BUTTON name="Button2" caption="상세보기" fgcolor="175:057152148" fontsize="-2" btnimage="bt_accin.9" transmode="0" shadow="0" ly_vert="327,80,60,20,1" />
+				<BUTTON name="Button3" caption="상세보기" fgcolor="175:057152148" fontsize="-2" btnimage="bt_accin.9" transmode="0" shadow="0" ly_vert="327,361,60,20,1" />
+				<BUTTON name="Button4" caption="상세보기" fgcolor="175:057152148" fontsize="-2" btnimage="bt_accin.9" transmode="0" shadow="0" ly_vert="327,563,60,20,1" />
+				<BUTTON name="Button5" caption="상세보기" fgcolor="175:057152148" fontsize="-2" btnimage="bt_accin.9" transmode="0" shadow="0" ly_vert="327,588,60,20,1" />
+				<BUTTON name="Button6" caption="상세보기" fgcolor="175:057152148" fontsize="-2" btnimage="bt_accin.9" transmode="0" shadow="0" ly_vert="327,773,60,20,1" />
+				<BUTTON name="Button7" caption="상세보기" fgcolor="175:057152148" fontsize="-2" btnimage="bt_accin.9" transmode="0" shadow="0" ly_vert="327,798,60,20,1" />
+				<LABEL name="Label25" caption="동의서 내용을 충분히 숙지하였습니다." fgcolor="147:054054054" halign="1" ly_vert="15,801,290,30,1" />
+				<BUTTON name="Button8" caption="고객권리 안내" fgcolor="175:057152148" fontsize="-2" btnimage="bt_accin.9" transmode="0" shadow="0" ly_vert="227,6,85,20,1" />
+				<BUTTON name="Button9" caption="고객권리 안내" fgcolor="175:057152148" fontsize="-2" btnimage="bt_accin.9" transmode="0" shadow="0" ly_vert="227,121,85,20,1" />
+				<BUTTON name="Button10" caption="상세보기" fgcolor="175:057152148" fontsize="-2" btnimage="bt_accin.9" transmode="0" shadow="0" ly_vert="327,145,60,20,1" />
+				<BUTTON name="Button11" caption="상세보기" fgcolor="175:057152148" fontsize="-2" btnimage="bt_accin.9" transmode="0" shadow="0" ly_vert="327,265,60,20,1" />
+				<BUTTON name="Button12" caption="상세보기" fgcolor="175:057152148" fontsize="-2" btnimage="bt_accin.9" transmode="0" shadow="0" ly_vert="327,298,60,20,1" />
+				<BUTTON name="Button13" caption="고객권리 안내" fgcolor="175:057152148" fontsize="-2" btnimage="bt_accin.9" transmode="0" shadow="0" ly_vert="227,335,85,20,1" />
+				<BUTTON name="Button14" caption="상세보기" fgcolor="175:057152148" fontsize="-2" btnimage="bt_accin.9" transmode="0" shadow="0" ly_vert="327,613,60,20,1" />
+				<BUTTON name="Button15" caption="상세보기" fgcolor="175:057152148" fontsize="-2" btnimage="bt_accin.9" transmode="0" shadow="0" ly_vert="327,714,60,20,1" />
+			</CONTROL_INFO>
+		</CONTAINER>
+		<BUTTON name="btnInfo2" caption="상품별 필수동의항목 확인" fgcolor="175:057152148" btnimage="bt_accin" transmode="0" shadow="0" ly_vert="140,5,170,25,1" />
+		<BUTTON name="btnInfo1" caption="안내사항" fgcolor="175:057152148" btnimage="bt_accin" transmode="0" shadow="0" ly_vert="60,5,70,25,1" />
+		<BUTTON name="btnCancel" resize="0100" caption="취소" fgcolor="168:255255255" btnimage="bt_acc_cal_n.9" transmode="0" shadow="0" ly_vert="50,335,100,35,1" />
+		<BUTTON name="btnRegister" resize="0100" caption="등록/변경" fgcolor="168:255255255" btnimage="bt_acc_comfirm_n.9" transmode="0" shadow="0" ly_vert="170,335,100,35,1" />
+	</CONTROL_INFO>
+	<SCRIPT_INFO _len="18810" _ulen="17966" >
+
+
+--[[=======================
+-- 변수 선언
+--=======================]]
+local m_sClientNo -- 고객번호
+local m_aBeforeData -- 조회데이터
+local m_aAfterData  -- 등록데이터
+local m_sScreenType
+
+
+
+--[[=======================
+-- 폼 관련 함수
+--=======================]]
+--============================================================================
+function Form_OnFormInitBefore()
+	m_sClientNo   = GetSharedData("&JUMIN_NUM", false)
+	m_aBeforeData = {}
+	m_aAfterData  = {}
+end
+
+
+
+
+--============================================================================
+function Form_OnTriggerEvent(sEventName, sParam)
+	if sEventName == "onRequestTran" then
+		m_sClientNo   = GetSharedData("&JUMIN_NUM", false)
+		--> 신용정보동의 등록 전 조회
+		RequestTranData( "OAM1501Q02" )
+		m_sScreenType = sParam
+	end
+end
+
+--============================================================================
+function Form_OnMsgBoxClose(sKeyName, sRet)
+	if sKeyName == "ReceiveTranComplete" then
+		if m_sScreenType == "Credit" then
+			TriggerEvent("#", "SetCurrentTab", "0")
+		elseif m_sScreenType == "FutureOption" then
+			TriggerEvent("#", "onRequestTran", "0")
+		end
+	end
+	
+	if sKeyName == "SetCurrentTab" then
+		TriggerEvent("#", sKeyName, "0")
+	end
+end
+
+
+
+--[[=======================
+-- 통신 관련 함수
+--=======================]]
+--============================================================================
+function DATAMANAGER_OnSendTranBefore(sTranID)
+	if sTranID == "OAM1501Q02" then	--조회
+		SetDataValue( 0, "OAM1501Q02", "OAM1501Q02_in", "RNM_CNFM_NO", 0, m_sClientNo )
+		
+	end
+
+
+	if sTranID == "OAM1501U02" then	--등록
+		SetDataValue( 0,"OAM1501U02", "OAM1501U02_in", "RNM_CNFM_NO" , 0, m_sClientNo )
+		
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN", 0, m_aAfterData[1])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN2", 0, m_aAfterData[2])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN6", 0, m_aAfterData[3])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN31", 0, m_aAfterData[4])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN32", 0, m_aAfterData[5])
+		
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN33", 0, m_aAfterData[6])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN34", 0, m_aAfterData[7])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN35", 0, m_aAfterData[8])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN36", 0, m_aAfterData[9])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN41", 0, m_aAfterData[10])
+		
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN42", 0, m_aAfterData[11])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN43", 0, m_aAfterData[12])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN44", 0, m_aAfterData[13])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN45", 0, m_aAfterData[14])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN46", 0, m_aAfterData[15])
+		
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN47", 0, m_aAfterData[16])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN48", 0, m_aAfterData[17])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN49", 0, m_aAfterData[18])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN23", 0, m_aAfterData[19])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN25", 0, m_aAfterData[20])
+		
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN26", 0, m_aAfterData[21])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN27", 0, m_aAfterData[22])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN28", 0, m_aAfterData[23])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN8", 0, m_aAfterData[24])
+		
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN50", 0, m_aAfterData[25])
+		SetDataValue( 0, "OAM1501U02", "OAM1501U02_in", "AGRE_YN29", 0, m_aAfterData[26])
+		
+
+		
+	end
+	
+
+
+end
+
+--============================================================================
+function DATAMANAGER_OnReceiveTranComplete(sTranID)
+	
+	if sTranID == "OAM1501Q02" then	--조회
+		SetDefaultControlState( "OAM1501Q02" )
+		
+	end
+
+
+	if sTranID == "OAM1501U02" then	--등록
+		local sMsg = GetDataMsgText(sTranID)
+		
+		--명,우편,전화,문자,이메일
+		
+		local s_Data = ""
+		
+		--우편
+		if m_aBeforeData[4] ~= m_aAfterData[4] then
+			s_Data = s_Data .. m_aAfterData[4]  .. ","
+		else
+			s_Data = s_Data .. ""  .. ","
+		end
+		
+		--전화
+		if m_aBeforeData[6] ~= m_aAfterData[6] then
+			s_Data = s_Data .. m_aAfterData[6]  .. ","
+		else
+			s_Data = s_Data .. ""  .. ","
+		end
+		
+		--문자
+		if m_aBeforeData[5] ~= m_aAfterData[5] then
+			s_Data = s_Data .. m_aAfterData[5]  .. ","
+		else
+			s_Data = s_Data .. ""  .. ","
+		end
+
+		--이메일
+		if m_aBeforeData[7] ~= m_aAfterData[7] then
+			s_Data = s_Data .. m_aAfterData[7]
+		else
+			s_Data = s_Data .. ""
+		end
+		
+		
+		OpenPopup( "P9700P11" , "상품서비스 안내 등 마케팅" ..",".. s_Data , "" )
+		
+	end
+	
+
+end
+
+--============================================================================
+function Form_OnPopupReturn(sKeyName, sRet)
+	if sKeyName == "정보동의_팝업" then
+		if sRet == "ok" then
+			if m_sScreenType == "Credit" then
+				--MsgBox("하나금융투자", sMsg, "ReceiveTranComplete", 0)
+				
+				if m_sScreenType == "Credit" then
+					TriggerEvent("#", "SetCurrentTab", "0")
+				elseif m_sScreenType == "FutureOption" then
+					TriggerEvent("#", "onRequestTran", "0")
+				end
+			else
+				TriggerEvent("#", "SetCurrentTab", "0")
+				--MsgBox("하나금융투자", GetDataMsgText( sTranID ), "SetCurrentTab", 0)
+			end
+		end	
+	end	
+end
+
+--============================================================================
+function DATAMANAGER_OnReceiveTranError(sTranID , sErrCode , sErrMsg)
+	SetDataReject( sTranID )
+	MsgBox("하나금융투자", sErrMsg, "", 3)
+end
+
+--============================================================================
+function SetDefaultControlState( sTranID )	--조회
+	--> 조회 데이터 결과 테이블 초기화 후 담기
+	if getTableSize(m_aBeforeData) > 0 then
+		for k,v in pairs(m_aBeforeData) do m_aBeforeData[k]=nil end
+	end
+	
+
+	m_aBeforeData[1] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN", 0 ) )
+	m_aBeforeData[2] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN2", 0 ) )
+	m_aBeforeData[3] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN6", 0 ) )
+	m_aBeforeData[4] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN31", 0 ) )
+	m_aBeforeData[5] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN32", 0 ) )
+	
+	m_aBeforeData[6] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN33", 0 ) )
+	m_aBeforeData[7] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN34", 0 ) )
+	m_aBeforeData[8] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN35", 0 ) )
+	m_aBeforeData[9] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN36", 0 ) )
+	m_aBeforeData[10] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN41", 0 ) )
+	
+	m_aBeforeData[11] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN42", 0 ) )
+	m_aBeforeData[12] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN43", 0 ) )
+	m_aBeforeData[13] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN44", 0 ) )
+	m_aBeforeData[14] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN45", 0 ) )
+	m_aBeforeData[15] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN46", 0 ) )
+	
+	m_aBeforeData[16] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN47", 0 ) )
+	m_aBeforeData[17] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN48", 0 ) )
+	m_aBeforeData[18] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN49", 0 ) )
+	m_aBeforeData[19] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN23", 0 ) )
+	m_aBeforeData[20] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN25", 0 ) )
+	
+	m_aBeforeData[21] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN26", 0 ) )
+	m_aBeforeData[22] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN27", 0 ) )
+	m_aBeforeData[23] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN28", 0 ) )
+	m_aBeforeData[24] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN8", 0 ) )
+	
+	m_aBeforeData[25] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN50", 0 ) )
+	m_aBeforeData[26] =  string.upper( GetDataValue( 0, "OAM1501Q02", "OAM1501Q02_out", "AGRE_YN29", 0 ) )
+
+	
+	--> 컨트롤 설정(라디오)
+	for k=1, 3 do
+		if m_aBeforeData[k] == "Y" then
+			SetCtlProp("Con0.rgAgree"..string.format("%s", k), "currentindex", "0")
+		elseif m_aBeforeData[k] == "N" then
+			SetCtlProp("Con0.rgAgree"..string.format("%s", k), "currentindex", "1")
+		else
+			SetCtlProp("Con0.rgAgree"..string.format("%s", k), "currentindex", "-1")
+		end
+	end
+	
+	local isAgreeMarketing
+	
+	if m_aBeforeData[4] == "Y" or m_aBeforeData[5] == "Y" or m_aBeforeData[6] == "Y" or m_aBeforeData[7] == "Y" then
+		isAgreeMarketing = "Y"
+		SetCtlProp("Con0.rgAgree4", "currentindex", "0")
+	else
+		isAgreeMarketing = "N"
+		SetCtlProp("Con0.rgAgree4", "currentindex", "1")
+	end
+	
+	--> 컨트롤 설정(체크박스)
+--	local isTotalCheck = true
+	if isAgreeMarketing == "Y" then
+		for k=4, 7 do
+			if m_aBeforeData[k] == "Y" then
+				SetCtlProp("Con0.ckbAgree"..string.format("%s", k), "checkstate", "1")
+			else
+				SetCtlProp("Con0.ckbAgree"..string.format("%s", k), "checkstate", "0")
+--				isTotalCheck = false
+			end
+		end
+		
+--		if isTotalCheck == true then
+--			SetCtlProp("Con0.ckbAgreeTotal", "checkstate", "1")
+--		end
+		
+	else
+		for k=4, 7 do
+			SetCtlProp("Con0.ckbAgree"..string.format("%s", k), "checkstate", "0")
+			SetCtlProp("Con0.ckbAgree"..string.format("%s", k), "enable", "0")
+		end
+--		SetCtlProp("Con0.ckbAgreeTotal", "checkstate", "0")
+--		SetCtlProp("Con0.ckbAgreeTotal", "enable", "0")
+	end
+	
+	
+	--> 컨트롤 설정(라디오)
+	for k=8, 24 do
+		if m_aBeforeData[k] == "Y" then
+			SetCtlProp("Con0.rgAgree"..string.format("%s", k), "currentindex", "0")
+		elseif m_aBeforeData[k] == "N" then
+			SetCtlProp("Con0.rgAgree"..string.format("%s", k), "currentindex", "1")
+		else
+			SetCtlProp("Con0.rgAgree"..string.format("%s", k), "currentindex", "-1")
+		end
+	end
+	
+	
+	
+	--> 동의서 체크 초기화
+--	SetCtlProp("Con0.ckbWebAgree1", "checkstate", "0")
+--	SetCtlProp("Con0.ckbWebAgree2", "checkstate", "0")
+--	SetCtlProp("Con0.ckbWebAgree3", "checkstate", "0")
+	
+	--> 스크롤 위치 변경
+	SetCtlProp("Con0", "scroll_pos", "top")
+end
+
+
+
+--[[=======================
+-- 컨트롤 함수
+--=======================]]
+
+--============================================================================
+-- 안내사항
+function btnInfo1_OnClick()
+	OpenPopup( "P5600P30", "", "" )
+end
+
+
+--============================================================================
+-- 유의사항
+function btnInfo2_OnClick()
+	OpenPopup( "P5600P33", "", "" )
+end
+
+--============================================================================
+-- 취소
+function btnCancel_OnClick()
+	TriggerEvent("#", "SetCurrentTab", "0")
+end
+
+--============================================================================
+-- 등록/변경
+function btnRegister_OnClick()
+	--> 조회 데이터 결과 테이블 초기화 후 담기
+	if getTableSize(m_aAfterData) > 0 then
+		for k,v in pairs(m_aAfterData) do m_aAfterData[k]=nil end
+	end
+
+	--> 컨트롤 설정 가져오기(라디오)
+	local sCurIndex = nil
+	for k=1, 3 do
+		sCurIndex = string.format("%s", GetCtlProp("Con0.rgAgree"..string.format("%s", k), "currentindex"))
+		
+		if sCurIndex == "0" then
+			m_aAfterData[k] = "Y"
+		elseif sCurIndex == "1" then
+			m_aAfterData[k] = "N"
+		else
+			m_aAfterData[k] = ""
+		end
+	end
+	
+	--> 컨트롤 설정 가져오기(체크박스)
+	local sState = nil
+	for k=4, 7 do
+		sState = string.format("%s", GetCtlProp("Con0.ckbAgree"..string.format("%s", k), "checkstate"))
+		
+		if string.format("%s", GetCtlProp("Con0.rgAgree19", "currentindex")) == "0" then
+			if sState == "1" then
+				m_aAfterData[k] = "Y"
+			else
+				m_aAfterData[k] = "N"
+			end
+		else
+			m_aAfterData[k] = "N"
+		end
+	end
+	
+	sCurIndex = nil
+	for k=8, 24 do
+		sCurIndex = string.format("%s", GetCtlProp("Con0.rgAgree"..string.format("%s", k), "currentindex"))
+		
+		if sCurIndex == "0" then
+			m_aAfterData[k] = "Y"
+		elseif sCurIndex == "1" then
+			m_aAfterData[k] = "N"
+		else
+			m_aAfterData[k] = ""
+		end
+		
+	end
+	
+	RequestTranData( "OAM1501U02" )
+	
+
+end
+
+
+
+--[[=======================
+-- 사용자 작성 함수
+--=======================]]
+--============================================================================
+-- 테이블 크기
+function getTableSize(t)
+    local size = 0
+    for index, value in pairs(t) do
+        size = size + 1
+    end
+    return size
+end
+
+--============================================================================
+-- Split
+function split(str, pat)
+   local t = {}
+   local fpat = "(.-)" .. pat
+   local last_end = 1
+   local s, e, cap = str:find(fpat, 1)
+   while s do
+      if s ~= 1 or cap ~= "" then
+		 table.insert(t,cap)
+      end
+      last_end = e+1
+      s, e, cap = str:find(fpat, last_end)
+   end
+   if last_end <= #str then
+      cap = str:sub(last_end)
+      table.insert(t, cap)
+   end
+   return t
+end
+
+
+--============================================================================
+function Con0_rgAgree4_OnClick(nIndex)
+	nIndex = tonumber(nIndex)
+	
+	if nIndex == 0 then
+		SetCtlProp("Con0.ckbAgree5", "enable", "1")
+		SetCtlProp("Con0.ckbAgree6", "enable", "1")
+		SetCtlProp("Con0.ckbAgree7", "enable", "1")
+		SetCtlProp("Con0.ckbAgree4", "enable", "1")
+		
+		SetCtlProp("Con0.ckbAgree5", "checkstate", "1")
+		SetCtlProp("Con0.ckbAgree6", "checkstate", "1")
+		SetCtlProp("Con0.ckbAgree7", "checkstate", "1")
+		SetCtlProp("Con0.ckbAgree4", "checkstate", "1")
+	else
+		SetCtlProp("Con0.ckbAgree5", "enable", "0")
+		SetCtlProp("Con0.ckbAgree6", "enable", "0")
+		SetCtlProp("Con0.ckbAgree7", "enable", "0")
+		SetCtlProp("Con0.ckbAgree4", "enable", "0")
+
+		SetCtlProp("Con0.ckbAgree5", "checkstate", "0")
+		SetCtlProp("Con0.ckbAgree6", "checkstate", "0")
+		SetCtlProp("Con0.ckbAgree7", "checkstate", "0")
+		SetCtlProp("Con0.ckbAgree4", "checkstate", "0")
+	end
+end
+
+--============================================================================
+function Con0_Button0_OnClick()
+	OpenPopup( "P9550P07" , "" , "" )	--개인신용정보필수동의서_개인정보이용 팝업
+end
+--============================================================================
+function Con0_Button1_OnClick()
+	OpenPopup( "P9550P08" , "" , "" )	--개인신용정보필수동의서_개인정보위탁 팝업
+end
+--============================================================================
+function Con0_Button2_OnClick()
+	OpenPopup( "P9550P09" , "" , "" )	--개인신용정보필수동의서_고유식별정보 팝업
+end
+--============================================================================
+function Con0_Button3_OnClick()
+	OpenPopup( "P9550P10" , "" , "" )	--개인신용정보필수동의서상품_정보이용 팝업
+end
+--============================================================================
+function Con0_Button4_OnClick()
+	OpenPopup( "P9550P11" , "" , "" )	--개인신용정보필수동의서상품_정보조회 팝업
+end
+
+--============================================================================
+function Con0_Button5_OnClick()
+	OpenPopup( "P9550P24" , "" , "" )
+end
+--============================================================================
+function Con0_Button6_OnClick()
+	OpenPopup( "P9550P13" , "" , "" )	--개인신용정보필수동의서상품_고유식별 팝업
+end
+
+--============================================================================
+function Con0_Button8_OnClick()
+	--OpenPopup( "P9550P18" , "" , "" )
+	
+	local sURL = "https://www.hanaw.com/download/yakgwan/9016.PDF"
+--	if GetSharedData("&TEST_SERVER", false ) == "1" then
+--		sURL = "https://devwww.hanaw.com/download/yakgwan/9016.PDF"
+--	end
+	
+	if string.sub(m_sMediaCode, 1, 2) == "MA" then
+		SendSNSLinkage( 9, "개인(신용)정보 필수동의서(공통).PDF", sURL)
+	else
+		OpenPopup( "P5400P15" , "개인(신용)정보 필수동의서(공통);".. sURL , "" )
+	end	
+end
+
+--============================================================================
+function Con0_Button9_OnClick()
+	--OpenPopup( "P9550P19" , "" , "" )
+	
+	local sURL = "https://www.hanaw.com/download/yakgwan/9018.PDF"
+--	if GetSharedData("&TEST_SERVER", false ) == "1" then
+--		sURL = "https://devwww.hanaw.com/download/yakgwan/9018.PDF"
+--	end
+	
+	if string.sub(m_sMediaCode, 1, 2) == "MA" then
+		SendSNSLinkage( 9, "개인(신용)정보 선택동의서.PDF", sURL)
+	else
+		OpenPopup( "P5400P15" , "개인(신용)정보 선택동의서;".. sURL , "" )
+	end	
+end
+
+--============================================================================
+function Con0_Button10_OnClick()
+	OpenPopup( "P9550P20" , "" , "" )
+end
+
+--============================================================================
+function Con0_Button11_OnClick()
+	OpenPopup( "P9550P21" , "" , "" )
+end
+
+--============================================================================
+function Con0_Button12_OnClick()
+	OpenPopup( "P9550P22" , "" , "" )
+end
+
+--============================================================================
+function Con0_Button13_OnClick()
+	--OpenPopup( "P9550P23" , "" , "" )
+	
+	local sURL = "https://www.hanaw.com/download/yakgwan/9017.PDF"
+--	if GetSharedData("&TEST_SERVER", false ) == "1" then
+--		sURL = "https://devwww.hanaw.com/download/yakgwan/9017.PDF"
+--	end
+	
+	if string.sub(m_sMediaCode, 1, 2) == "MA" then
+		SendSNSLinkage( 9, "개인(신용)정보 필수동의서(상품별).PDF", sURL)
+	else
+		OpenPopup( "P5400P15" , "개인(신용)정보 필수동의서(상품별);".. sURL , "" )
+	end	
+end
+
+--============================================================================
+function Con0_Button14_OnClick()
+	OpenPopup( "P9550P12" , "" , "" )
+end
+
+--============================================================================
+function Con0_Button7_OnClick()
+	OpenPopup( "P9550P25" , "" , "" )
+end
+--============================================================================
+function Con0_Button15_OnClick()
+	OpenPopup( "P9550P26" , "" , "" )
+end
+
+
+
+
+
+	</SCRIPT_INFO>
+	<DATAIO_INFO>
+		<TRID_INFO>
+			<TRAN control_code="OAM1501Q02" layout_code="OAM1501Q02" />
+			<TRAN control_code="OAM1501U02" layout_code="OAM1501U02" />
+		</TRID_INFO>
+		<TRIO_INFO>
+			<TRAN layout_code="OAM1501Q02" title="개인신용정보처리동의조회" realdata="0" targetroutesymbol="B" blockrecordlength="0" >
+				<TRBLOCK name="OAM1501Q02_out" occurs="0" inout="out" _len="1010" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="802" >
+
+AGRE_YN^동의여부^1^0^5^0^0^0^
+AGRE_YN6^동의여부6^1^0^5^0^0^0^
+AGRE_YN2^동의여부2^1^0^5^0^0^0^
+AGRE_YN31^동의여부31^1^0^5^0^0^0^
+AGRE_YN32^동의여부32^1^0^5^0^0^0^
+AGRE_YN33^동의여부33^1^0^5^0^0^0^
+AGRE_YN34^동의여부34^1^0^5^0^0^0^
+AGRE_YN35^동의여부35^1^0^5^0^0^0^
+AGRE_YN36^동의여부36^1^0^5^0^0^0^
+AGRE_YN41^동의여부41^1^0^5^0^0^0^
+AGRE_YN42^동의여부42^1^0^5^0^0^0^
+AGRE_YN43^동의여부43^1^0^5^0^0^0^
+AGRE_YN44^동의여부44^1^0^5^0^0^0^
+AGRE_YN45^동의여부45^1^0^5^0^0^0^
+AGRE_YN46^동의여부46^1^0^5^0^0^0^
+AGRE_YN47^동의여부47^1^0^5^0^0^0^
+AGRE_YN50^동의여부50^1^0^5^0^0^0^
+AGRE_YN48^동의여부48^1^0^5^0^0^0^
+AGRE_YN49^동의여부49^1^0^5^0^0^0^
+AGRE_YN23^동의여부23^1^0^5^0^0^0^
+AGRE_YN25^동의여부25^1^0^5^0^0^0^
+AGRE_YN26^동의여부26^1^0^5^0^0^0^
+AGRE_YN27^동의여부27^1^0^5^0^0^0^
+AGRE_YN29^동의여부29^1^0^5^0^0^0^
+AGRE_YN28^동의여부28^1^0^5^0^0^0^
+AGRE_YN8^동의여부8^1^0^5^0^0^0^
+
+				</TRBLOCK>
+				<TRBLOCK name="OAM1501Q02_in" occurs="0" inout="in" _len="139" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="99" >
+
+RNM_CNFM_NO^실명확인번호^32^0^5^0^0^0^
+CTNO^종합계좌대체번호^9^0^5^0^0^0^
+ACNT_PWD^계좌비밀번호^64^0^5^0^0^0^
+
+				</TRBLOCK>
+			</TRAN>
+			<TRAN layout_code="OAM1501U02" title="개인신용정보처리동의변경" realdata="0" targetroutesymbol="B" blockrecordlength="0" >
+				<TRBLOCK name="OAM1501U02_out" occurs="0" inout="out" _len="59" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="43" >
+
+PRCS_RSLT_DCD^처리결과구분코드^1^0^5^0^0^0^
+
+				</TRBLOCK>
+				<TRBLOCK name="OAM1501U02_in" occurs="0" inout="in" _len="1143" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="895" >
+
+RNM_CNFM_NO^실명확인번호^32^0^5^0^0^0^
+CTNO^종합계좌대체번호^9^0^5^0^0^0^
+ACNT_PWD^계좌비밀번호^64^0^5^0^0^0^
+AGRE_YN^동의여부^1^0^5^0^0^0^
+AGRE_YN6^동의여부6^1^0^5^0^0^0^
+AGRE_YN2^동의여부2^1^0^5^0^0^0^
+AGRE_YN31^동의여부31^1^0^5^0^0^0^
+AGRE_YN32^동의여부32^1^0^5^0^0^0^
+AGRE_YN33^동의여부33^1^0^5^0^0^0^
+AGRE_YN34^동의여부34^1^0^5^0^0^0^
+AGRE_YN35^동의여부35^1^0^5^0^0^0^
+AGRE_YN36^동의여부36^1^0^5^0^0^0^
+AGRE_YN41^동의여부41^1^0^5^0^0^0^
+AGRE_YN42^동의여부42^1^0^5^0^0^0^
+AGRE_YN43^동의여부43^1^0^5^0^0^0^
+AGRE_YN44^동의여부44^1^0^5^0^0^0^
+AGRE_YN45^동의여부45^1^0^5^0^0^0^
+AGRE_YN46^동의여부46^1^0^5^0^0^0^
+AGRE_YN47^동의여부47^1^0^5^0^0^0^
+AGRE_YN50^동의여부50^1^0^5^0^0^0^
+AGRE_YN48^동의여부48^1^0^5^0^0^0^
+AGRE_YN49^동의여부49^1^0^5^0^0^0^
+AGRE_YN23^동의여부23^1^0^5^0^0^0^
+AGRE_YN25^동의여부25^1^0^5^0^0^0^
+AGRE_YN26^동의여부26^1^0^5^0^0^0^
+AGRE_YN27^동의여부27^1^0^5^0^0^0^
+AGRE_YN29^동의여부29^1^0^5^0^0^0^
+AGRE_YN28^동의여부28^1^0^5^0^0^0^
+AGRE_YN8^동의여부8^1^0^5^0^0^0^
+
+				</TRBLOCK>
+			</TRAN>
+		</TRIO_INFO>
+	</DATAIO_INFO>
+</ROOT>
