@@ -1,0 +1,896 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ROOT>
+	<MAP_INFO scrno=" 9060" scrname="바이오인증_등록_고객정보확인" version="1" writer="itgen:" date="2014/11/25 17:13:56" />
+	<FORM_INFO name="Form" bgcolor="042:255255255" ly_vert="0,0,320,490,1" />
+	<CONTROL_INFO>
+		<CONTAINER name="Container0" resize="0001" vscroll="1" ly_vert="0,0,320,430,1" scroll_ly_vert="0,0" >
+			<CONTROL_INFO>
+				<IMAGE name="Image1" autosize="1" imagefilepth="acctdbg02.9" ly_vert="165,47,144,146,1" />
+				<IMAGE name="Image0" autosize="1" imagefilepth="acctdbg01.9" ly_vert="10,47,156,146,1" />
+				<ACCOUNT name="Account0" itemcodetype="010,110,190,210,220,230,240,250,260,300,310,410,510,610,650,660,670,680,690,800,700" ly_vert="175,102,125,35,1" >
+					<ACCTNAME name="EMBEDED_NAME" ishorizon="1" ly_vert="1,1,98,32,1" />
+				</ACCOUNT>
+				<EDIT name="EditJumin" fgcolor="095:000000000" imetype="0" ly_vert="175,57,125,35,1" />
+				<BUTTON name="ButtonJumin" btnimage="auth_input" transmode="0" shadow="0" ly_vert="175,57,125,35,1" />
+				<LABEL name="Label0" caption="지문인증 등록여부 확인을 위해 본인확인 정보를 입력하세요." fgcolor="147:054054054" fontsize="1" valign="0" multiline="1" ly_vert="10,5,300,39,1" />
+				<LABEL name="Label2" caption="주민(사업자)등록번호" fgcolor="147:054054054" ly_vert="22,59,135,33,1" />
+				<LABEL name="Label3" caption="계좌번호" fgcolor="147:054054054" ly_vert="22,103,100,40,1" />
+				<LABEL name="Label4" caption="계좌비밀번호" fgcolor="147:054054054" ly_vert="22,147,105,42,1" />
+				<EDIT name="EditPass" fgcolor="095:000000000" password="2" imetype="1" clearall="0" ly_vert="175,147,125,36,1" />
+				<IMAGE name="Image2" autosize="1" imagefilepth="auth_imgbg3.9" ly_vert="10,234,300,174,1" />
+				<LABEL name="Label8" caption="고객님의 지문정보는 스마트폰 내에서만 저장되며, 서비스를 제공하는 금융결제원과 당사는 지문정보를 보관하지 않습니다. " fgcolor="147:054054054" fontsize="-1" valign="0" multiline="1" paddinginfo="0,0,1,0" ly_vert="25,242,280,54,1" />
+				<LABEL name="Label9" caption="등록하신 지문은 공인인증서 대신 사용 가능합니다.
+" fgcolor="147:054054054" fontsize="-1" valign="0" multiline="1" paddinginfo="0,0,1,0" ly_vert="25,298,280,32,1" />
+				<IMAGE name="Image3" autosize="1" imagefilepth="ic_green1" ly_vert="12,245,10,10,1" />
+				<IMAGE name="Image4" autosize="1" imagefilepth="ic_green1" ly_vert="12,301,10,10,1" />
+				<LABEL name="Label5" ly_vert="75,398,176,20,1" />
+				<EDIT name="EditEnc" fgcolor="095:000000000" imetype="0" ly_vert="215,179,78,17,0" />
+				<LABEL name="Label6" caption="(13자리(10자리)입력)" fgcolor="147:054054054" fontsize="-2" ly_vert="22,79,135,22,1" />
+				<EDIT name="Edit0" fgcolor="095:000000000" imetype="0" ly_vert="30,180,84,19,0" />
+				<LABEL name="Label11" caption="아래의 경우에는 재등록이 필요합니다. 
+  - 지문인식 5회 연속 오류
+  - 금융결제원 바이오인증 공동 앱 삭제
+  - 스마트기기에 등록된 지문변경 또는 삭제
+    (설정 초기화 등)
+" fgcolor="147:054054054" fontsize="-1" valign="0" multiline="1" paddinginfo="0,0,1,0" ly_vert="25,327,280,78,1" />
+				<IMAGE name="Image6" autosize="1" imagefilepth="ic_green1" ly_vert="12,330,10,10,1" />
+				<LABEL name="Label1" caption="유의사항" fgcolor="147:054054054" ly_vert="30,209,200,15,1" />
+				<IMAGE name="Image5" imagefilepth="icon_bullet_01" ly_vert="16,210,13,13,1" />
+			</CONTROL_INFO>
+		</CONTAINER>
+		<BUTTON name="ButtonBack" resize="0100" caption="뒤로" fgcolor="168:255255255" btnimage="bt_acc_cal" transmode="0" shadow="0" ly_vert="165,440,100,40,1" />
+		<BUTTON name="ButtonCommit" resize="0100" caption="확인" fgcolor="168:255255255" btnimage="bt_acc_comfirm" transmode="0" shadow="0" ly_vert="55,440,100,40,1" />
+	</CONTROL_INFO>
+	<SCRIPT_INFO _len="19006" _ulen="16308" >
+--단말기 지정
+local auth_trm_tp = ""
+
+--추가인증
+local auth_2ch_tp = ""
+
+--개인정보 수집동의여부
+local pers_gthr_tp = ""
+
+--개인정보제공동의여부
+local pers_offr_tp = ""
+
+--SMS통지 여부
+local sms_yn = ""
+
+--지정단말기 여부
+local trm_yn = ""
+
+--외국인여부
+local frgn_yn = ""
+
+--온라인인원확인 동의여부
+local szAgreeYN  = ""
+
+--[[------------------
+	공 통 함 수 
+----------------------]]
+--============================================================================
+function Form_OnFormInit()
+--ShowAlert("",  GetSharedData("&JUMIN_NUM", false) )
+	--들어왔으니 초기화
+	SetSharedData("auth_trm_tp", "")
+	SetSharedData("auth_2ch_tp", "")
+	SetSharedData("pers_gthr_tp", "")
+	SetSharedData("pers_offr_tp", "")
+	SetSharedData("sms_yn", "")
+	SetSharedData("trm_yn", "")
+	--키패드 문구셋팅
+	setKeypadCaption()		
+	
+	
+	local loginType = GetSharedData("&LOGIN_TYPE", false)
+	if loginType == "0" then
+		OpenCommonDialog( "ID_LOGIN", "", "" )
+	end
+end
+
+
+--============================================================================
+function Form_OnPopupReturn(sKeyName, sRet)
+	--[[
+		이용약관 및 동의에 대한 SetAgree 체크박스 처리
+	--]]
+	if sKeyName == "SetAgree" then		
+		local checkIndex = split(sRet, ";")[1]		
+		if checkIndex  == "0" then
+			SetCtlProp("Container0.ChkButton0", "checkstate", split(sRet, ";")[2])
+		elseif checkIndex  == "1" then
+			SetCtlProp("Container0.ChkButton1", "checkstate", split(sRet, ";")[2])
+		else
+			SetCtlProp("Container0.ChkButton2", "checkstate", split(sRet, ";")[2])
+		end
+	end
+end
+
+
+--============================================================================
+function Form_OnCommonDialogReturn(sDlgName, sReturn1, sReturn2)
+	--[[
+		주민번호 버튼 클릭후 넘어온 값에 대하여 마스킹 처리
+	]]
+	if sDlgName == "LOGIN" then
+		OpenScreen("9060", "eee")
+	end
+	if sDlgName == "KS" then
+		if sReturn2 ~= "CANCEL" then
+			if sReturn1 == "3" then -- 주민등록번호
+				 SetCtlProp("Container0.Edit0", "encdata", sReturn2)
+				 local shareddata = GetCtlProp("Container0.Edit0", "encbirthday")
+    
+				 SetCtlProp("Container0.ButtonJumin", "caption", string.sub(shareddata, 1, 6) .. "-"..string.sub(shareddata, 7, 7) .."******")
+				 SetCtlProp("Container0.EditJumin", "caption", shareddata)
+			end
+		end
+	end
+end
+
+
+-- 주민번호 입력 버튼 클릭
+--============================================================================
+function Container0_ButtonJumin_OnClick()
+	--[[
+		주민번호 버튼 클릭시 버튼(마스킹표시)와 실제 주민번호값 초기화
+	--]]
+	SetCtlProp("Container0.EditJumin", "caption", "")
+	SetCtlProp("Container0.ButtonJumin", "caption", "")
+	OpenCommonDialog("KS", "3", "주민등록번호 입력" )
+end
+
+-- 뒤로가기 버튼 클릭
+--============================================================================
+function ButtonBack_OnClick()
+	--[[
+		뒤로가기 버튼 클릭 시 이전(가장최근메뉴화면) 화면열기
+	--]]
+	local lastScreen = GetSharedData("&PREV_SCREEN_NO", false)	
+	OpenScreen(lastScreen, "2")
+end
+
+-- 확인 버튼 클릭
+--============================================================================
+function ButtonCommit_OnClick()	
+
+	local loginType = GetSharedData("&LOGIN_TYPE", false)
+	if loginType == "0" then
+		OpenCommonDialog( "ID_LOGIN", "", "" )
+		
+		return
+	end
+
+
+	--로그인 주민번호와 같은 주민번호 입력되었는지 확인
+	if GetCtlProp("Container0.Edit0","caption") ~= GetSharedData("&JUMIN_NUM",false) then
+		MsgBox("알림","입력하신 주민등록번호는 로그인한 명의와 다릅니다.\n다시 입력해 주세요.")
+		
+		local msg = ""
+		msg = msg.."[고객입력 주민번호]\n"
+		msg = msg.."["..GetCtlProp("Container0.Edit0","caption").."]\n"
+		msg = msg.."[로그인 고객 주민번호]\n"
+		msg = msg.."["..GetSharedData("&JUMIN_NUM",false).."]\n"
+		
+		sendJuminLog(msg)		--서버조회로그 서비스 보냄
+		
+	else
+		--[[
+			비밀번호 검증 후 다음 화면처리를 위해 비밀번호부터 검증한다
+		--]]
+		RequestTranData( "OAM2501U03" )		-- 비밀번호확인퇴직연금용
+	end
+	
+end
+
+-- 계좌번호 컨트롤
+--============================================================================
+function Container0_Account0_ChangeAccount()
+	setKeypadCaption()
+end
+
+
+
+-- 동의사항1
+--============================================================================
+function Container0_ChkButton0_OnChange(sCheckState)	
+	if sCheckState == "1" then
+		MsgBox("알림", "사용제공동의")
+	end
+end
+
+-- 동의사항2
+--============================================================================
+function Container0_ChkButton1_OnChange(sCheckState)
+	if sCheckState == "1" then
+		local sData = "1;".."개인정보 수집 및 이용 동의"..";"..
+	              "https://www.hanaw.com/download/yakgwan/html/9271.html"
+		OpenPopup( "P5600P35", sData, "" )
+	end
+	
+end
+
+-- 동의사항3
+--============================================================================
+function Container0_ChkButton2_OnChange(sCheckState)
+	if sCheckState == "1" then
+		local sData = "2;".."개인정보 제3자 제공에 대한 동의"..";"..
+	              "https://www.hanaw.com/download/yakgwan/html/9272.html"
+		OpenPopup( "P5600P35", sData, "" )
+	end
+	
+end
+
+
+
+
+
+
+
+
+--[[------------------
+	통 신 함 수  
+----------------------]]
+--============================================================================
+function DATAMANAGER_OnSendTranBefore(szControlCode)
+	local account = GetAccountInfo( GetCtlProp("Container0.Account0", "caption") , "ctno" )
+	local pswd  = GetCtlProp("Container0.EditPass", "encdata")	
+		
+	-- 비밀번호확인 검증
+	if szControlCode == "OAM2501U03" then		
+		SetDataValue( false, "OAM2501U03", "OAM2501U03_in", "CTNO" , 0 , account)	--종합계좌대체번호
+		SetDataValue( false, "OAM2501U03", "OAM2501U03_in", "INQ_DVSN", 0 , "2")	--처리구분
+		SetDataValue( false, "OAM2501U03", "OAM2501U03_in", "PWD" , 0 , pswd)	--계좌비밀번호
+	end	
+	
+	
+	-- 전자금융사기예방서비스 조회
+	if szControlCode == "OAM4503Q07" then		
+		SetDataValue( false, "OAM4503Q07", "OAM4503Q07_in", "CTNO", 0, account) 
+		SetDataValue( false, "OAM4503Q07", "OAM4503Q07_in", "PWD", 0, pswd) 
+	end
+	
+	
+		
+	-- 공인인증 발급내역조회
+	if szControlCode == "HHTSIGNM02" then		
+		SetDataValue( false, "HHTSIGNM02", "InBlock1", "USER_ID" , 0 ,GetSharedData("&USER_ID", false) )
+		SetDataValue( false, "HHTSIGNM02", "InBlock1", "IDNO" , 0 ,GetCtlProp("Container0.EditJumin", "caption") )
+	
+	end	
+	
+	
+	-- 전자금융사기예방서비스 조회
+	if szControlCode == "OAM4502Q01" then		
+		SetDataValue( false, "OAM4502Q01", "OAM4502Q01_in", "CTNO", 0, account) 
+		SetDataValue( false, "OAM4502Q01", "OAM4502Q01_in", "PWD", 0, pswd) 
+	end	
+	
+	-- 전자금융사기예방채널서비스 조회
+	if szControlCode == "OAM4502Q57" then		
+		--지정단말기 여부 조회
+		SetDataValue( false, "OAM4502Q57", "OAM4502Q57_in", "USR_ID", 0, GetSharedData("&USER_ID", false) )
+		SetDataValue( false, "OAM4502Q57", "OAM4502Q57_in", "FRD_PRVT_TMNL_DSCM_CTNS" , 0, GetSharedData("&DEVICE_UNIQUE_VALUE1", false)  )
+		SetDataValue( false, "OAM4502Q57", "OAM4502Q57_in", "FRD_PRVT_TMNL_DSCM_CTNS_2" , 0, GetSharedData("&DEVICE_UNIQUE_VALUE2", false)  )
+	end		
+	
+	-- 내외국인여부조회
+	if szControlCode == "OAM4502Q58" then		
+		SetDataValue( false, "OAM4502Q58", "OAM4502Q58_in", "CTNO", 0, account)
+	end	
+	
+	-- 고객번호입력기용고객정보조회(고객명 조회를 위해)
+	if szControlCode == "OAM0101Q02" then		
+		SetDataValueEx(false, "OAM0101Q02", "OAM0101Q02_in", "CUST_RNM_CNFM_NO", 0, GetCtlProp("Container0.Edit0", "caption"))
+	end	
+	
+	-- 주소조회(휴대폰 조회를 위해)
+	if szControlCode == "OAM1621Q13" then		
+		SetDataValueEx( false, "OAM1621Q13", "OAM1621Q13_in", "RNM_CNFM_NO", 0 , GetCtlProp("Container0.Edit0", "caption"))
+		SetDataValue( false, "OAM1621Q13", "OAM1621Q13_in", "PRCS_DVSN", 0 , "1" )--처리성구분
+	end	
+	
+	
+	-- 전자금융사기예방이용현황등록
+	if szControlCode == "OAM4502U52" then		
+		SetDataValue(false, "OAM4502U52", "OAM4502U52_in", "USR_ID", 0, GetSharedData("&USER_ID", false))
+		SetDataValue(false, "OAM4502U52", "OAM4502U52_in", "FRD_PRVT_DCD", 0, "11")
+	end	
+	
+	-- 은행개설계좌조회
+	if szControlCode == "OAM4502Q54" then		
+		SetDataValue(false, "OAM4502Q54", "OAM4502Q54_in", "CTNO", 0, account)  
+		SetDataValue(false, "OAM4502Q54", "OAM4502Q54_in", "PWD", 0, pswd)
+	end	
+		
+		
+end
+
+
+
+--============================================================================
+function DATAMANAGER_OnReceiveTranComplete(szControlCode) 
+	local errCode = GetDataMsgCode( szControlCode )	
+	local account = GetAccountInfo( GetCtlProp("Container0.Account0", "caption") , "ctno" )
+	local accountITEM = GetCtlProp("Container0.Account0", "itemcodetype")
+	local pswd  = GetCtlProp("Container0.EditPass", "encdata")	
+	
+	
+	-- 비밀번호확인 검증
+	if szControlCode == "OAM2501U03" then
+		local result = GetDataValue(false, "OAM2501U03", "OAM2501U03_out", "PRCS_PSBL_YN", 0)		
+		if string.upper(result) == "Y" then
+			--계좌 비밀번호 저장
+			SetCtlProp("Container0.Account0", "accpwd", GetCtlProp("Container0.EditPass", "caption")) 		
+			--[[
+				기존에는 고객상태조회부터 진행하였으나 
+				2016.12월 신규 요건(온라인신원확인)에 따라 "전자금융서비스처리전조회 및 인증서상태"를 먼저 진행합니다
+			--]]
+			--전자금융서비스처리전조회
+			RequestTranData( "OAM4503Q07" )
+			--고객 상태 조회(사기예방 서비스 신청 여부)			
+--			RequestTranData("OAM4502Q01")
+		else
+			SetCtlProp("Container0.EditPass", "caption", "")
+			MsgBox("알림","입력된 계좌비밀번호가 다릅니다.")
+		end
+	end
+	
+	-- 전자금융서비스처리전조회
+	if szControlCode == "OAM4503Q07" then
+		szAgreeYN = string.upper(GetDataValue(false, "OAM4503Q07", "OAM4503Q07_out", "ONL_IDNT_CNFM_AGRE_YN", 0))	--온라인신원확인동의여부
+		RequestTranData( "HHTSIGNM02" )
+	end	
+	
+	--공인인증 발급 내역 조회
+	if szControlCode == "HHTSIGNM02" then
+		local szStatus = StrTrim(GetDataValue( false, "HHTSIGNM02", "OutBlock1", "STATUS" , 0 ))
+		
+		--[[
+			Output 중 status(인증서 상태) 유효 값
+			정상, 폐지, 정지, 만료, 미발급, 미등록, 알수없음(미발급, 미등록, 알수없음 : 발급 대상, 그 이외는 재발급 대상 입니다. )			
+			발급의 경우,
+			 1) 사전동의 ‘정보 없음’ 고객 : 사전 동의 화면 팝업
+			 2) 사전동의 정보 있는 고객(동의or미동의 ) : 정상 발급 진행
+			재발급의 경우,
+			 1) 사전동의 ‘정보 없음’ 고객 : 사전 동의 화면 팝업
+			 2) 사전동의 정보 ‘동의’ 고객 : 정상 발급 진행
+			 3) 사전동의 정보 ‘미동의’ 고객 : 문구 팝업(메뉴연결)
+		--]]
+		if szStatus == "미발급" or szStatus == "미등록" or szStatus == "알수없음" then	--발급대상
+			if szAgreeYN == "Y" then	--사전동의
+				RequestTranData("OAM4502Q01")
+			elseif szAgreeYN == "N" then	--사전미동의
+				RequestTranData("OAM4502Q01")
+			else	--정보없음
+				OpenPopup( "P9711P00" , szStatus..";"..szAgreeYN..";"..account..";"..accountITEM..";"..pswd..";" , "" )
+			end		
+		else	--재발급대상
+			if szAgreeYN == "Y" then	--사전동의
+				RequestTranData("OAM4502Q01")
+			elseif szAgreeYN == "N" then	--사전미동의
+				OpenPopup( "P9711P02" , szStatus..";"..szAgreeYN..";"..account..";"..accountITEM..";"..pswd..";" , "" )
+			else	--정보없음
+				OpenPopup( "P9711P00" , szStatus..";"..szAgreeYN..";"..account..";"..accountITEM..";"..pswd..";" , "" )
+			end	
+		end
+		
+		
+	end
+	
+	
+	
+	-- 전자금융사기예방서비스 조회
+	if szControlCode == "OAM4502Q01" then
+		--서비스 신청내역 저장해놓고
+		auth_trm_tp  = GetDataValue( false, "OAM4502Q01", "OAM4502Q01_out", "TMNL_APPN_RQS_YN", 0)	--단말기지정신청여부
+		auth_2ch_tp  = GetDataValue( false, "OAM4502Q01", "OAM4502Q01_out", "ADIT_CTFC_RQS_YN", 0)	--추가인증신청여부
+		pers_gthr_tp = GetDataValue( false, "OAM4502Q01", "OAM4502Q01_out", "PSNL_INF_GTH_AGRE_YN", 0)	--개인정보수집동의여부
+		pers_offr_tp = GetDataValue( false, "OAM4502Q01", "OAM4502Q01_out", "PSNL_INF_OFFR_AGRE_YN", 0)	--개인정보제공동의여부
+		sms_yn       = GetDataValue( false, "OAM4502Q01", "OAM4502Q01_out", "SMS_NTC_YN", 0)			--sms통지여부
+		
+		if auth_trm_tp == nil  then auth_trm_tp = "" end
+		if auth_2ch_tp == nil  then auth_2ch_tp = "" end
+		if pers_gthr_tp == nil then pers_gthr_tp = "" end
+		if pers_offr_tp == nil then pers_offr_tp = "" end
+		if sms_yn == nil       then sms_yn = "" end		
+		
+		--딴화면에서 써먹게 shared data 에 저장
+		SetSharedData("auth_trm_tp", auth_trm_tp)
+		SetSharedData("auth_2ch_tp", auth_2ch_tp)
+		SetSharedData("pers_gthr_tp", pers_gthr_tp)
+		SetSharedData("pers_offr_tp", pers_offr_tp)
+		SetSharedData("sms_yn", sms_yn)	
+		
+		-- 전자금융사기예방채널서비스 조회
+		RequestTranData("OAM4502Q57")		
+	end
+	
+	-- 전자금융사기예방채널서비스 조회
+	if szControlCode == "OAM4502Q57" then
+		trm_yn = ""
+		trm_yn = GetDataValue( false, "OAM4502Q57", "OAM4502Q57_out", "APPN_TMNL_YN", 0)	--지정단말기여부
+		SetSharedData("trm_yn", trm_yn)		
+		--외국인여부 조회		
+		RequestTranData("OAM4502Q58")
+
+	end
+	
+	--외국인여부 조회
+	if szControlCode == "OAM4502Q58" then
+		frgn_yn = ""
+		frgn_yn = GetDataValue( false, "OAM4502Q58", "OAM4502Q58_out", "FRGR_YN", 0)		--외국인여부
+		if frgn_yn == nil then
+			frgn_yn = ""
+		end		
+		SetSharedData("frgn_yn", frgn_yn)		
+		--고객명 조회 		
+		RequestTranData("OAM0101Q02")
+
+	end
+	
+	-- 고객번호입력기용고객정보조회
+	if szControlCode == "OAM0101Q02" then	
+		 -- 핸드폰 번호조회  		 
+		RequestTranData("OAM1621Q13")		
+	end  
+		
+	-- 주소조회
+	if szControlCode == "OAM1621Q13" then 
+		local name = GetDataValue( false, "OAM0101Q02", "OAM0101Q02_out", "CUST_NM", 0)
+		SetSharedData("user_name", name)
+		--휴대폰 전화번호 저장 (SMS 발송을 위해서)
+		local ro_cus_htel = ""
+		SetSharedData("ro_cus_htel", "")
+		ro_cus_htel = string.gsub(GetDataValue( false, "OAM1621Q13", "OAM1621Q13_out", "PTBL_TLNO", 0), "-", "") 
+		SetSharedData("ro_cus_htel", ro_cus_htel) 		
+		
+		--주민번호 실명확인 제거
+		--단말기지정서비스 신청여부
+		if auth_trm_tp == "1" or auth_trm_tp == "Y" or auth_trm_tp == "y" then
+			if trm_yn == "y" or trm_yn == "Y" then
+				--지정단말기 --인증서 발급으로 이동 --PostLinkData("탭이동", "P9702S02") --return
+				--단말기 지정건 현황 등록 은 여기서 --2채널인증등 추가인증건은 인증화면에서 날리자							
+				-- 전자금융사기예방이용현황등록
+				RequestTranData("OAM4502U52")				
+			else
+				--다른단말인경우
+				--추가인증 선택 여부
+				if auth_2ch_tp == "1" or auth_2ch_tp == "Y" or auth_2ch_tp == "y" then
+				else
+					--추가인증을 선택하지 않았다.
+					if sms_yn ~= "1" then
+						--근데 SMS 통지 신청안한경우에만
+						MsgBox("알림", "지정된 단말기에서만 이용할수 있습니다")
+						return
+					end
+				end
+			end
+		end		
+		-- 은행개설계좌조회(이쯤에서 은행연계계좌인데, 보안카드 유무를 판단할 필요가 있다.)
+		RequestTranData("OAM4502Q54") 
+	end
+	
+	-- 은행개설계좌조회
+	if szControlCode == "OAM4502Q54" then 
+		local bb_check = GetDataValue(false, "OAM4502Q54", "OAM4502Q54_out", "BNK_OPEN_YN", 0)
+		local bb_otp = GetDataValue(false,"OAM4502Q54", "OAM4502Q54_out", "SCUR_MDIA_USE_YN", 0)
+		local NCFRT_OPEN_YN = GetDataValue(false, "OAM4502Q54", "OAM4502Q54_out", "NCFRT_OPEN_YN", 0)
+		
+		local account_pwd = GetCtlProp("Container0.EditPass", "encdata")
+		SetSharedData("account_no", GetCtlProp("Container0.Account0", "caption")) -- 2016.06.12 임수연 
+		SetSharedData("account_pwd", account_pwd)
+		
+		PostLinkData("추가인증", "인증완료")
+		
+--		if (bb_check == "Y" or NCFRT_OPEN_YN == "Y") and bb_otp == "N" then
+--			--은행연계계좌 이면서 보안매체가 없다.
+--			--부가 인증으로
+--			PostLinkData("탭이동", "P9702S04")
+--		else
+--			---[[
+--			local secuGubn = GetSharedData("&SEC_GUBN", false)
+--			if secuGubn == "0" then
+--				--보안카드
+--				PostLinkData("탭이동", "P9702S01")
+--			elseif secuGubn == "1" then
+--				--OTP
+--				SetSharedData("SmartOTP_Data", "P9702S00")
+--				PostLinkData("탭이동", "P9702S03")
+--			else
+--				--미발급
+--				MsgBox("알림", "보안매체확인에 실패했습니다")
+--				SetSharedData("account_pwd","")
+--			end
+--		end
+		--]]
+	end
+end
+
+
+--============================================================================
+function DATAMANAGER_OnReceiveTranError(szControlCode , szErrCode , szErrMsg)
+	if szControlCode == "OAM2501U03"  then
+		SetCtlProp("Container0.EditPass", "caption", "")
+		SetCtlProp("Container0.Account0", "accpwd", "")
+		MsgBox("알림","입력된 계좌비밀번호가 다릅니다.")			
+	else
+		ShowAlert("", "["..szControlCode.."]"..szErrMsg)
+	end		
+	
+end
+
+
+
+
+
+
+--[[------------------
+	사 용 자 함 수  
+----------------------]]
+--============================================================================
+function CodeMask(sCode)
+	local length = string.len(sCode)
+	if length > 6 then
+		NewCode = string.sub(sCode,1,6).."-"..string.rep("*",length-6)
+	else
+		NewCode = sCode
+	end
+	return NewCode
+end
+
+
+--============================================================================
+function setKeypadCaption()
+	SetCtlProp("Container0.EditPass", "keypadcaption", "계좌 [ " .. GetCtlProp("Container0.Account0", "accountcode").. " ] 비밀번호")
+end
+
+
+-- Split
+--============================================================================
+function split(str, pat)
+   local t = {}
+   local fpat = "(.-)" .. pat
+   local last_end = 1
+   local s, e, cap = str:find(fpat, 1)
+   while s do
+      if s ~= 1 or cap ~= "" then
+		 table.insert(t,cap)
+      end
+      last_end = e+1
+      s, e, cap = str:find(fpat, last_end)
+   end
+   if last_end <= #str then
+      cap = str:sub(last_end)
+      table.insert(t, cap)
+   end
+   return t
+end
+
+--============================================================================
+function sendJuminLog( msg )	
+	SetDataValue(false, "HHTLOGMM01", "InBlock1", "mapx", 0, "9702") 
+	SetDataValue(false, "HHTLOGMM01", "InBlock1", "mapy", 0, "P9702S00") 
+	SetDataValue(false, "HHTLOGMM01", "InBlock1", "kind", 0, " ")  
+	SetDataValue(false, "HHTLOGMM01", "InBlock1", "data", 0, msg)
+	RequestTranData("HHTLOGMM01") 
+end
+
+
+--============================================================================
+function Form_OnLinkData(sKey, sValue)
+	if sKey == "P9711P00_Complete" then
+		if sValue == "Complete" then
+			RequestTranData("OAM4502Q01")
+		end
+	end
+end
+
+	</SCRIPT_INFO>
+	<DATAIO_INFO>
+		<TRID_INFO>
+			<TRAN control_code="OAM2501U02" layout_code="OAM2501U02" />
+			<TRAN control_code="OAM4502Q01" layout_code="OAM4502Q01" />
+			<TRAN control_code="OAM1621Q13" layout_code="OAM1621Q13" />
+			<TRAN control_code="HHTLOGMM01" layout_code="HHTLOGMM01" />
+			<TRAN control_code="OAM4502Q57" layout_code="OAM4502Q57" />
+			<TRAN control_code="OAM4502Q58" layout_code="OAM4502Q58" />
+			<TRAN control_code="OAM4502U52" layout_code="OAM4502U52" />
+			<TRAN control_code="OAM4502Q54" layout_code="OAM4502Q54" />
+			<TRAN control_code="OAM0101Q02" layout_code="OAM0101Q02" />
+			<TRAN control_code="OAM2501U03" layout_code="OAM2501U03" />
+			<TRAN control_code="HHTSIGNM02" layout_code="HHTSIGNM02" encryption="1" />
+			<TRAN control_code="OAM4503Q07" layout_code="OAM4503Q07" />
+		</TRID_INFO>
+		<TRIO_INFO>
+			<TRAN layout_code="OAM2501U02" title="비밀번호확인C" realdata="0" targetroutesymbol="A" blockrecordlength="0" >
+				<TRBLOCK name="OAM2501U02_out" occurs="0" inout="out" _len="83" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="67" >
+
+PRCS_PSBL_YN^처리가능여부^1^0^5^0^0^0^
+ERR_ID^오류ID^10^0^5^0^0^0^
+
+				</TRBLOCK>
+				<TRBLOCK name="OAM2501U02_in" occurs="0" inout="in" _len="318" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="222" >
+
+CTNO^종합계좌대체번호^9^0^5^0^0^0^
+APNO^계좌상품번호^3^0^5^0^0^0^
+PWD^비밀번호^64^0^5^0^0^0^
+PWD_GNRL_PRCS_DVSN1^비밀번호일반처리구분1^1^0^5^0^0^0^
+PWD_GNRL_PRCS_DVSN2^비밀번호일반처리구분2^1^0^5^0^0^0^
+PWD_GNRL_PRCS_DVSN3^비밀번호일반처리구분3^1^0^5^0^0^0^
+
+				</TRBLOCK>
+			</TRAN>
+			<TRAN layout_code="OAM4502Q01" title="전자금융사기예방서비스조회" realdata="0" targetroutesymbol="B" blockrecordlength="0" >
+				<TRBLOCK name="OAM4502Q01_out" occurs="0" inout="out" _len="295" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="213" >
+
+TMNL_APPN_RQS_YN^단말기지정신청여부^1^0^5^0^0^0^
+ADIT_CTFC_RQS_YN^추가인증신청여부^1^0^5^0^0^0^
+PSNL_INF_GTH_AGRE_YN^개인정보수집동의여부^1^0^5^0^0^0^
+PSNL_INF_OFFR_AGRE_YN^개인정보제공동의여부^1^0^5^0^0^0^
+SMS_NTC_YN^SMS통지여부^1^0^5^0^0^0^
+
+				</TRBLOCK>
+				<TRBLOCK name="OAM4502Q01_in" occurs="0" inout="in" _len="82" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="58" >
+
+CTNO^종합계좌대체번호^9^0^5^0^0^0^
+PWD^비밀번호^64^0^5^0^0^0^
+
+				</TRBLOCK>
+			</TRAN>
+			<TRAN layout_code="OAM1621Q13" title="주소조회" realdata="0" targetroutesymbol="B" blockrecordlength="0" >
+				<TRBLOCK name="OAM1621Q13_in" occurs="0" inout="in" _len="265" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="193" >
+
+NEXTKEY^다음조회키^100^0^5^0^0^0^
+PRCS_DVSN^처리구분^1^0^5^0^0^0^
+DPPL_SCRN_YN^통보처화면여부^1^0^5^0^0^0^
+RNM_CNFM_NO^실명확인번호^32^0^5^0^0^0^
+CTNO^종합계좌대체번호^9^0^5^0^0^0^
+ACNT_PWD^계좌비밀번호^64^0^5^0^0^0^
+
+				</TRBLOCK>
+				<TRBLOCK name="OAM1621Q13_out" occurs="0" inout="out" _len="1150" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="848" >
+
+NEXTKEY^다음조회키^100^0^5^0^0^0^
+DM_DPPL_DVSN_NM^DM통보처구분명^20^0^5^0^0^0^
+TM_DPPL_DVSN_NM^TM통보처구분명^20^0^5^0^0^0^
+OWHS_ADDR_NTN_CD^자택주소국가코드^3^0^5^0^0^0^
+OWHS_ADDR_NTN_NM^자택주소국가명^80^0^5^0^0^0^
+OWHS_ZPCD^자택우편번호^6^0^5^0^0^0^
+OWHS_ADDR^자택주소^500^0^5^0^0^0^
+OWHS_TELP_NTN_CD^자택전화국가코드^3^0^5^0^0^0^
+OWHS_TELP_NTN_NM^자택전화국가명^80^0^5^0^0^0^
+OWHS_TLNO^자택전화번호^64^0^5^0^0^0^
+WRPL_ADDR_NTN_CD^직장주소국가코드^3^0^5^0^0^0^
+WRPL_ADDR_NTN_NM^직장주소국가명^80^0^5^0^0^0^
+WRPL_ZPCD^직장우편번호^6^0^5^0^0^0^
+WRPL_ADDR^직장주소^416^0^5^0^0^0^
+WRPL_TELP_NTN_CD^직장전화국가코드^3^0^5^0^0^0^
+WRPL_TELP_NTN_NM^직장전화국가명^80^0^5^0^0^0^
+WRPL_TLNO^직장전화번호^64^0^5^0^0^0^
+PTBL_TLNO^휴대전화번호^64^0^5^0^0^0^
+EML_ADDR^이메일주소^416^0^5^0^0^0^
+FAX_TLNO^팩스전화번호^64^0^5^0^0^0^
+WRPL_NM^직장명^80^0^5^0^0^0^
+CPIN^고객식별번호^10^0^5^0^0^0^
+PSNL_CRP_DCD^개인법인구분코드^1^0^5^0^0^0^
+CRDT_INF_AGRE_YN^신용정보동의여부^1^0^5^0^0^0^
+
+				</TRBLOCK>
+				<TRBLOCK name="OAM1621Q13_out_sub01" occurs="100" inout="out" _len="168" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="120" >
+
+CANO^종합계좌번호^32^0^5^0^0^0^
+BLN_DPPL_DVSN_NM^잔고통보처구분명^30^0^5^0^0^0^
+TR_INF_DPPL_DVSN_NM^거래정보통보처구분명^30^0^5^0^0^0^
+
+				</TRBLOCK>
+				<TRBLOCK name="OAM1621Q13_out_sub02" occurs="100" inout="out" _len="195" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="143" >
+
+ETC_ADDR_NTN_NM^기타주소국가명^80^0^5^0^0^0^
+ETC_ZPCD^기타우편번호^6^0^5^0^0^0^
+ETC_ADDR^기타주소^400^0^5^0^0^0^
+CUST_CPLC_SN^고객연락처일련번호^11^0^6^0^0^0^
+
+				</TRBLOCK>
+				<TRBLOCK name="OAM1621Q13_out_sub03" occurs="100" inout="out" _len="158" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="114" >
+
+ETC_TELP_NTN_NM^기타전화국가명^80^0^5^0^0^0^
+ETC_TLNO^기타전화번호^30^0^5^0^0^0^
+CUST_CPLC_SN^고객연락처일련번호^11^0^6^0^0^0^
+
+				</TRBLOCK>
+			</TRAN>
+			<TRAN layout_code="HHTLOGMM01" title="서버로그조회" realdata="0" targetroutesymbol="M" blockrecordlength="0" >
+				<TRBLOCK name="InBlock1" occurs="0" inout="in" _len="136" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="136" >
+
+mapx^main map name^8^0^5^0^0^0^
+mapy^this map name^8^0^5^0^0^0^
+kind^kind of log^1^0^5^0^0^0^
+data^log message^200^0^5^0^0^0^
+
+				</TRBLOCK>
+				<TRBLOCK name="OutBlock1" occurs="0" inout="out" _len="37" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="37" >
+
+retc^return code^1^0^5^0^0^0^
+
+				</TRBLOCK>
+			</TRAN>
+			<TRAN layout_code="OAM4502Q57" title="전자금융사기예방채널서비스조회" realdata="0" targetroutesymbol="B" blockrecordlength="0" >
+				<TRBLOCK name="OAM4502Q57_out" occurs="0" inout="out" _len="261" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="191" >
+
+TMNL_APPN_RQS_YN^단말기지정신청여부^1^0^5^0^0^0^
+ADIT_CTFC_RQS_YN^추가인증신청여부^1^0^5^0^0^0^
+SMS_NTC_YN^SMS통지여부^1^0^5^0^0^0^
+APPN_TMNL_YN^지정단말기여부^1^0^5^0^0^0^
+TMNL_RGST_CNT^단말기등록건수^6^0^6^0^0^0^
+
+				</TRBLOCK>
+				<TRBLOCK name="OAM4502Q57_in" occurs="0" inout="in" _len="189" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="139" >
+
+USR_ID^사용자ID^20^0^5^0^0^0^
+FRD_PRVT_TMNL_DSCM_CTNS^사기방지단말기식별내용^50^0^5^0^0^0^
+FRD_PRVT_TMNL_DSCM_CTNS_2^사기방지단말기식별내용2^50^0^5^0^0^0^
+
+				</TRBLOCK>
+			</TRAN>
+			<TRAN layout_code="OAM4502Q58" title="내외국인여부조회" realdata="0" targetroutesymbol="B" blockrecordlength="0" >
+				<TRBLOCK name="OAM4502Q58_out" occurs="0" inout="out" _len="44" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="34" >
+
+FRGR_YN^외국인여부^1^0^5^0^0^0^
+
+				</TRBLOCK>
+				<TRBLOCK name="OAM4502Q58_in" occurs="0" inout="in" _len="50" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="34" >
+
+CTNO^종합계좌대체번호^9^0^5^0^0^0^
+
+				</TRBLOCK>
+			</TRAN>
+			<TRAN layout_code="OAM4502U52" title="전자금융사기예방이용현황등록" realdata="0" targetroutesymbol="B" blockrecordlength="0" >
+				<TRBLOCK name="OAM4502U52_out" occurs="0" inout="out" _len="32" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="28" >
+
+DUMY^더미^1^0^5^0^0^0^
+
+				</TRBLOCK>
+				<TRBLOCK name="OAM4502U52_in" occurs="0" inout="in" _len="92" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="70" >
+
+USR_ID^사용자ID^20^0^5^0^0^0^
+FRD_PRVT_DCD^사기방지구분코드^2^0^5^0^0^0^
+
+				</TRBLOCK>
+			</TRAN>
+			<TRAN layout_code="OAM4502Q54" title="은행개설계좌조회" realdata="0" targetroutesymbol="B" blockrecordlength="0" >
+				<TRBLOCK name="OAM4502Q54_out" occurs="0" inout="out" _len="157" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="115" >
+
+BNK_OPEN_YN^은행개설여부^1^0^5^0^0^0^
+SCUR_MDIA_USE_YN^보안매체사용여부^1^0^5^0^0^0^
+NCFRT_OPEN_YN^비대면개설여부^1^0^5^0^0^0^
+
+				</TRBLOCK>
+				<TRBLOCK name="OAM4502Q54_in" occurs="0" inout="in" _len="82" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="58" >
+
+CTNO^종합계좌대체번호^9^0^5^0^0^0^
+PWD^비밀번호^64^0^5^0^0^0^
+
+				</TRBLOCK>
+			</TRAN>
+			<TRAN layout_code="OAM0101Q02" title="고객번호입력기용고객정보조회" realdata="0" targetroutesymbol="B" blockrecordlength="0" >
+				<TRBLOCK name="OAM0101Q02_out" occurs="0" inout="out" _len="527" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="373" >
+
+CPIN^고객식별번호^10^0^5^0^0^0^
+CUST_NM^고객명^192^0^5^0^0^0^
+RNM_CNFM_NO_DCD^실명확인번호구분코드^2^0^5^0^0^0^
+TR_END_CUST_YN^거래종료고객여부^1^0^5^0^0^0^
+CUST_EVN_OFFR_YN^고객이벤트제공여부^1^0^5^0^0^0^
+TR_CAUT_YN^거래주의여부^1^0^5^0^0^0^
+CUST_GRD_DCD^고객등급구분코드^2^0^5^0^0^0^
+PSTP_APLY_AF_ITGR_CUST_GRD_DCD^유예적용이후통합고객등급구분코^2^0^5^0^0^0^
+MNGM_BDCD^관리부점코드^5^0^5^0^0^0^
+MNGM_EMPNO^관리사원번호^7^0^5^0^0^0^
+
+				</TRBLOCK>
+				<TRBLOCK name="OAM0101Q02_in" occurs="0" inout="in" _len="112" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="82" >
+
+CUST_RNM_CNFM_NO^고객실명확인번호^32^0^5^0^0^0^
+ANGT_INCL_YN^대리인포함여부^1^0^5^0^0^0^
+
+				</TRBLOCK>
+			</TRAN>
+			<TRAN layout_code="OAM2501U03" title="비밀번호확인퇴직연금용" realdata="0" targetroutesymbol="B" blockrecordlength="0" >
+				<TRBLOCK name="OAM2501U03_out" occurs="0" inout="out" _len="168" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="120" >
+
+PRCS_PSBL_YN^처리가능여부^1^0^5^0^0^0^
+CUST_RNM_CNFM_NO^고객실명확인번호^32^0^5^0^0^0^
+HDS_CUST_DVSN^하나대투증권고객구분^1^0^5^0^0^0^
+
+				</TRBLOCK>
+				<TRBLOCK name="OAM2501U03_in" occurs="0" inout="in" _len="175" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="127" >
+
+INQ_DVSN^조회구분^1^0^5^0^0^0^
+CUST_RNM_CNFM_NO^고객실명확인번호^32^0^5^0^0^0^
+CTNO^종합계좌대체번호^9^0^5^0^0^0^
+PWD^비밀번호^64^0^5^0^0^0^
+
+				</TRBLOCK>
+			</TRAN>
+			<TRAN layout_code="HHTSIGNM02" title="공인인증 발급 내역 조회" realdata="0" targetroutesymbol="M" blockrecordlength="0" >
+				<TRBLOCK name="InBlock1" occurs="0" inout="in" _len="75" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="61" >
+
+USER_ID^사용자 ID^20^0^5^0^0^0^
+IDNO^주민번호^13^0^5^0^0^0^
+
+				</TRBLOCK>
+				<TRBLOCK name="OutBlock1" occurs="0" inout="out" _len="381" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="301" >
+
+DB_DN^금투등록 DN값^200^0^5^0^0^0^
+DB_SERIAL^금투등록 시리얼^10^0^5^0^0^0^
+PWD_ERR_CNT^비밀번호 오류횟수^3^0^5^0^0^0^
+USER_ID^사용자 ID^20^0^5^0^0^0^
+SIGN_DN^SIGNKOREA DN값^200^0^5^0^0^0^
+SIGN_SERIAL^SIGNKOREA 시리얼^10^0^5^0^0^0^
+S_DATE^발급 일자^25^0^5^0^0^0^
+E_DATE^만료 일자^25^0^5^0^0^0^
+STATUS^인증서 상태^10^0^5^0^0^0^
+
+				</TRBLOCK>
+			</TRAN>
+			<TRAN layout_code="OAM4503Q07" title="전자금융서비스처리전조회" realdata="0" targetroutesymbol="B" blockrecordlength="0" >
+				<TRBLOCK name="OAM4503Q07_out" occurs="0" inout="out" _len="2482" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="1756" >
+
+CUST_NM^고객명^192^0^5^0^0^0^
+CUST_RNM_CNFM_NO^고객실명확인번호^32^0^5^0^0^0^
+OWHS_TLNO^자택전화번호^64^0^5^0^0^0^
+WRPL_TLNO^직장전화번호^64^0^5^0^0^0^
+PTBL_TLNO^휴대전화번호^64^0^5^0^0^0^
+EMAIL^이메일^40^0^5^0^0^0^
+FAX_TLNO^팩스전화번호^64^0^5^0^0^0^
+DPH_YN^파출여부^1^0^5^0^0^0^
+HTS_CTRC_YN^HTS약정여부^1^0^5^0^0^0^
+MTS_CTRC_YN^MTS약정여부^1^0^5^0^0^0^
+INQ_SRVC_CTRC_YN^조회서비스약정여부^1^0^5^0^0^0^
+ARS_CTRC_YN^ARS약정여부^1^0^5^0^0^0^
+USR_ID^사용자ID^20^0^5^0^0^0^
+ONL_DY1_TRNF_LMT_AMT^온라인1일이체한도금액^19^0^6^0^0^0^
+ONL_TM1_TRNF_LMT_AMT^온라인1회이체한도금액^19^0^6^0^0^0^
+ARS_DY1_TRNF_LMT_AMT^ARS1일이체한도금액^19^0^6^0^0^0^
+ARS_TM1_TRNF_LMT_AMT^ARS1회이체한도금액^19^0^6^0^0^0^
+DRWG_ACNT_CHNG_PSBL_YN^출금계좌변경가능여부^1^0^5^0^0^0^
+CUST_SCUR_GRD_DCD^고객보안등급구분코드^1^0^5^0^0^0^
+SCUR_2GRD_APRV_YN^보안2등급찬성여부^1^0^5^0^0^0^
+PLRL_USR_ID_USE_YN^복수사용자ID사용여부^1^0^5^0^0^0^
+SCRD_OTP_DCD^보안카드OTP구분코드^1^0^5^0^0^0^
+TRMD_DCD^거래매체구분코드^2^0^5^0^0^0^
+SCRD_NO^보안카드번호^32^0^5^0^0^0^
+OTP_VNDR_DCD^OTP벤더구분코드^3^0^5^0^0^0^
+OTP_MCHY_SN^OTP기기일련번호^12^0^5^0^0^0^
+FEE_PMNT_MTH_DCD^수수료납부방법구분코드^1^0^5^0^0^0^
+DRWG_CTNO^출금종합계좌대체번호^9^0^5^0^0^0^
+DRWG_APNO^출금계좌상품번호^3^0^5^0^0^0^
+PBNK_APPN_SRVC_JOIN_YN^폰뱅킹지정서비스가입여부^1^0^5^0^0^0^
+PBNK_APPN_RGST_SN^폰뱅킹지정등록일련번호^11^0^6^0^0^0^
+PBNK_APPN_ATNO^폰뱅킹지정전화지역번호^4^0^5^0^0^0^
+PBNK_APPN_BTNO^폰뱅킹지정전화국번호^32^0^5^0^0^0^
+PBNK_APPN_STNO^폰뱅킹지정전화일련번호^4^0^5^0^0^0^
+PBNK_APPN_RGST_SN_2^폰뱅킹지정등록일련번호2^11^0^6^0^0^0^
+PBNK_APPN_ATNO_2^폰뱅킹지정전화지역번호2^4^0^5^0^0^0^
+PBNK_APPN_BTNO_2^폰뱅킹지정전화국번호2^32^0^5^0^0^0^
+PBNK_APPN_STNO_2^폰뱅킹지정전화일련번호2^4^0^5^0^0^0^
+PBNK_APPN_RGST_SN_3^폰뱅킹지정등록일련번호3^11^0^6^0^0^0^
+PBNK_APPN_ATNO_3^폰뱅킹지정전화지역번호3^4^0^5^0^0^0^
+PBNK_APPN_BTNO_3^폰뱅킹지정전화국번호3^32^0^5^0^0^0^
+PBNK_APPN_STNO_3^폰뱅킹지정전화일련번호3^4^0^5^0^0^0^
+ONL_IDNT_CNFM_AGRE_YN^온라인신원확인동의여부^1^0^5^0^0^0^
+ONL_IDNT_CNFM_AGRE_DTM^온라인신원확인동의일시^14^0^5^0^0^0^
+
+				</TRBLOCK>
+				<TRBLOCK name="OAM4503Q07_in" occurs="0" inout="in" _len="82" toutblk="" grid_symbol="" fixed_occurs="0" reverse="0" _ulen="58" >
+
+CTNO^종합계좌대체번호^9^0^5^0^0^0^
+PWD^비밀번호^64^0^5^0^0^0^
+
+				</TRBLOCK>
+			</TRAN>
+		</TRIO_INFO>
+	</DATAIO_INFO>
+</ROOT>
